@@ -16,3 +16,5 @@ jobs:
         run: python -m pip install -r requirements.txt
       - name: Build example project
         run: python src/lander.py --config example/config.json --template example/test.html --verbose && ls
+      - name: Build example project with a custom file name
+        run: python src/lander.py --config example/config.json --template example/test.html --verbose --output index.html && ls
