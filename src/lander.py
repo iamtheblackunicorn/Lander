@@ -99,7 +99,7 @@ class Compiler:
         """
         now = datetime.datetime.now()
         date = str(now.year) + str(now.month) + str(now.day) + str(now.hour) + str(now.minute) + str(now.second)
-        new_file_name = 'build-' + date + '-' + self.template.split('.html')[0] + '.html'
+        new_file_name = 'build-' + date + '-' + self.template.split('/')[-1].split('.html')[0] + '.html'
         if self.is_custom:
             new_file_name = self.custom_name
         else:
