@@ -3,6 +3,6 @@
   "title":"Sample page",
   "content":[
     "extern",
-    "content.txt"
+    "example/content.txt"
   ]
 }

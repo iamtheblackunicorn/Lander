@@ -116,9 +116,6 @@ class Compiler:
         except Exception as error:
             print(str(error))
             sys.exit()
-class Tools:
-    def init_project():
-        pass
 class CLI:
     """
     A command-line interface class for Lander.
@@ -139,9 +136,7 @@ class CLI:
         The actual command-line interface of Lander.
         """
         parser = ArgumentParser()
-        tools = Tools()
         parser.add_argument('--output', help='custom output file')
-        parser.add_argument('--init', help='initiates a new Lander project', action='store_true')
         parser.add_argument('--version', help='displays version info', action='store_true')
         parser.add_argument('--verbose', help='display code before compilation', action='store_true')
         parser.add_argument('--config', help='configuration file')
@@ -149,8 +144,6 @@ class CLI:
         args = parser.parse_args()
         if args.version:
             self.version_info()
-        elif args.init:
-            tools.init_project()
         elif args.config and args.template and args.verbose:
             Compiler(args.config, args.template, True, False, 'None').compile_result()
         elif args.config and args.template:
