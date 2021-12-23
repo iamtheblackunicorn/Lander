@@ -2,6 +2,8 @@
 
 ***A small tool to compile static one-page pages from a template and some configuration files. :crescent_moon: :rocket:***
 
+![GitHub CI](https://github.com/iamtheblackunicorn/Lander/actions/workflows/python.yaml/badge.svg)
+
 ## About :books:
 
 A while ago, I wanted to make a custom page-builder and I came up with this. This is a small tool to compile static one-page pages from a template and some configuration files.
