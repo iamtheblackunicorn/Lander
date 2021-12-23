@@ -91,3 +91,6 @@ $ python3 lander.py --config config.json --template template.html --output index
 ```
 
 ## Note :scroll:
+
+- *Lander :crescent_moon: :rocket:* by Alexander Abraham :black_heart: a.k.a. *"The Black Unicorn" :unicorn:*
+- Licensed under the MIT license.
