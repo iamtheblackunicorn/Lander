@@ -15,7 +15,7 @@ jobs:
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
       - name: Build example project
-        run: python src/lander.py --config example/config.json --template example/test.html --verbose && ls
+        run: python src/lander.py --config example/config.json --template example/template.html --verbose && ls
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
