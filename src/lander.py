@@ -9,6 +9,7 @@ import os
 import sys
 import json
 import shutil
+import requests
 import argparse
 from re import sub
 from re import findall
@@ -112,6 +113,41 @@ class Compiler:
         except Exception as error:
             print(str(error))
             sys.exit()
+class Tools:
+    """
+    A class that makes
+    some tools for Lander
+    available.
+    """
+    def download_file(self,file_URL):
+        """
+        This method downloads a file
+        from a remote URL.
+        """
+        request = requests.get(file_URL)
+        with open(file_URL.split('/')[-1], 'w') as remote_file:
+            remote_file.write(request.text)
+    def init_project(self,dir_name):
+        """
+        This method initializes an empty project with some boilerplate.
+        """
+        config_file = 'https://raw.githubusercontent.com/iamtheblackunicorn/Lander/main/example/config.json'
+        template_file = 'https://raw.githubusercontent.com/iamtheblackunicorn/Lander/main/example/template.html'
+        content_file = 'https://raw.githubusercontent.com/iamtheblackunicorn/Lander/main/example/content.txt'
+        file_list = [
+            config_file,
+            template_file,
+            content_file
+        ]
+        try:
+            os.makedirs(dir_name)
+            os.chdir(dir_name)
+            for file in file_list:
+                self.download_file(file)
+            os.chdir('..')
+        except Exception as error:
+            print(str(error))
+            sys.exit()
 class CLI:
     """
     A command-line interface class for Lander.
@@ -135,10 +171,13 @@ class CLI:
         parser.add_argument('--version', help='displays version info', action='store_true')
         parser.add_argument('--verbose', help='display code before compilation', action='store_true')
         parser.add_argument('--config', help='configuration file')
+        parser.add_argument('--init', help='initialize a new project with some boilerplate')
         parser.add_argument('--template', help='the template to use')
         args = parser.parse_args()
         if args.version:
             self.version_info()
+        elif args.init:
+            Tools().init_project(args.init)
         elif args.config and args.template and args.verbose:
             Compiler(args.config, args.template, True).compile_result()
         elif args.config and args.template:
