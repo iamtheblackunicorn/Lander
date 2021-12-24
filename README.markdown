@@ -133,7 +133,7 @@ If you run any of the last two commands in a command-line window, you will see a
 
 ### Version 1.0.0
 
-- initial release
+- Initial release
 - Fixed CI and other commands
 - Added a class for tools
 
