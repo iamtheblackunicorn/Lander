@@ -86,11 +86,9 @@ $ python3 lander.py --version
 $ python3 lander.py --config config.json --template template.html --verbose
 # Compile the HTML file with all variables filled in.
 $ python3 lander.py --config config.json --template template.html
-# Compile the HTML file with all variables filled in with a custom file name.
-$ python3 lander.py --config config.json --template template.html --output index.html
-# Compile the HTML file with all variables filled in with a custom file name and print out the code that is generated.
-$ python3 lander.py --config config.json --template template.html --output index.html --verbose
 ```
+
+If you run any of the last two commands in a command-line window, you will see a little file called `index.html` in a directory called `build`.
 
 ## Note :scroll:
 

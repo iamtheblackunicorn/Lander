@@ -8,7 +8,7 @@ import re
 import os
 import sys
 import json
-import datetime
+import shutil
 import argparse
 from re import sub
 from re import findall
@@ -17,7 +17,7 @@ class Compiler:
     """
     A class to compile the files to an HTML file and inject the content.
     """
-    def __init__(self, config_name, template_name, verbose, is_custom, custom_name):
+    def __init__(self, config_name, template_name, verbose):
         """
         Defining some class-wide variables needed to compile sensible HTML.
         These variables are needed to run the methods below.
@@ -26,8 +26,8 @@ class Compiler:
         self.template = template_name
         self.pattern = r'\{\{\s(.*)\s\}\}'
         self.verbose = verbose
-        self.is_custom = is_custom
-        self.custom_name = custom_name
+        self.build_dir = 'build'
+        self.o_file_name = 'index.html'
     def get_data(self, template):
         """
         Fetching the template variables from the supplied template.
@@ -95,15 +95,9 @@ class Compiler:
     def compile_result(self):
         """
         Dumps the HTML code string from [find_and_replace_in_template]
-        into another HTML file. Gives the option to supply a different file name.
+        into another HTML file.
         """
-        now = datetime.datetime.now()
-        date = str(now.year) + str(now.month) + str(now.day) + str(now.hour) + str(now.minute) + str(now.second)
-        new_file_name = 'build-' + date + '-' + self.template.split('/')[-1].split('.html')[0] + '.html'
-        if self.is_custom:
-            new_file_name = self.custom_name
-        else:
-            pass
+        new_file_name = self.o_file_name
         try:
             compiled = open(new_file_name, 'w')
             compiled = open(new_file_name, 'a')
@@ -113,6 +107,8 @@ class Compiler:
                 pass
             compiled.write(self.find_and_replace_in_template(self.config, self.template))
             compiled.close()
+            os.makedirs(self.build_dir)
+            shutil.move(self.o_file_name, self.build_dir)
         except Exception as error:
             print(str(error))
             sys.exit()
@@ -136,7 +132,6 @@ class CLI:
         The actual command-line interface of Lander.
         """
         parser = ArgumentParser()
-        parser.add_argument('--output', help='custom output file')
         parser.add_argument('--version', help='displays version info', action='store_true')
         parser.add_argument('--verbose', help='display code before compilation', action='store_true')
         parser.add_argument('--config', help='configuration file')
@@ -145,13 +140,9 @@ class CLI:
         if args.version:
             self.version_info()
         elif args.config and args.template and args.verbose:
-            Compiler(args.config, args.template, True, False, 'None').compile_result()
+            Compiler(args.config, args.template, True).compile_result()
         elif args.config and args.template:
-            Compiler(args.config, args.template, False, False, 'None').compile_result()
-        elif args.config and args.template and args.verbose and args.output:
-            Compiler(args.config, args.template, True, True, args.output).compile_result()
-        elif args.config and args.template and args.output:
-            Compiler(args.config, args.template, False, True, args.output).compile_result()
+            Compiler(args.config, args.template, False).compile_result()
         else:
             print('Try using the "--help" flag.')
             sys.exit()
