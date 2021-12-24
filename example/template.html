@@ -8,6 +8,8 @@ https://github.com/iamtheblackunicorn/Lander
 <html>
  <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <mneta name="description" content="Lander for Python, a small tool to compile static one-page pages from a template and some configuration files."/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Pushster&display=swap" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="https://raw.githubusercontent.com/iamtheblackunicorn/Lander/main/assets/css/styles.css"/>
@@ -16,7 +18,12 @@ https://github.com/iamtheblackunicorn/Lander
  <body>
   <h1>{{ author }}</h1>
   <div class="content">
+   <p>
    {{ content }}
+  </p>
+  <p>
+   Source: <a href="{{ project_link }}">{{ link_text }}</a>
+  </p>
   </div>
  </body>
 </html>
