@@ -129,6 +129,14 @@ $ python3 lander.py --config config.json --template template.html
 
 If you run any of the last two commands in a command-line window, you will see a little file called `index.html` in a directory called `build`.
 
+## Changelog :black_nib:
+
+### Version 1.0.0
+
+- initial release
+- Fixed CI and other commands
+- Added a class for tools
+
 ## Note :scroll:
 
 - *Lander :crescent_moon: :rocket:* by Alexander Abraham :black_heart: a.k.a. *"The Black Unicorn" :unicorn:*
