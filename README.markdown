@@ -35,13 +35,13 @@ If the installation was successful, you should be able to run the command `lande
 
 ### Set it up
 
-You need to create three parts.
+You need to create three files.
 
 - An HTML template.
 - A configuration file.
 - A content file.
 
-An HTML template: In this file you would have a bunch of HTML code and some variables.
+An HTML template: In this file you would have some HTML code and some variables.
 Variables would be of this form: `{{ variable }}`.
 
 ```HTML
@@ -106,8 +106,8 @@ Example: `config.json`
 }
 ```
 
-The first variable `author` is populated with `Alexander Abraham`.
-The second variable `title` is populated with `Sample page`.
+The first variable `author` is populated with `Lander`.
+The second variable `title` is populated with `Lander`.
 The third variable `content` is populated with the content from the content file `content.txt`.
 This is signified by the `extern` keyword.
 
