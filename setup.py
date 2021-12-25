@@ -2,8 +2,14 @@ import pathlib
 import setuptools
 from setuptools import setup
 from setuptools import find_packages
+# Current path.
 here = pathlib.Path(__file__).parent.resolve()
+# The long description of the "README".
 long_description = (here / 'README.markdown').read_text(encoding='utf-8')
+"""
+Calling the setup function from setuptools
+to install/build the package.
+"""
 setup(
     name='lander',
     version='1.0.0',

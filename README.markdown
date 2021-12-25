@@ -121,32 +121,32 @@ are in the project's "README".
 
 ### Run it
 
-- 1.) Download the tool.
-- 2.) Open a command-line window in the same directory.
-- 3.) Invoke the tool like this:
+- 1.) Install the tool.
+- 3.) Run the tool:
 
 ```bash
 # Print out version information.
-$ python3 lander.py --version
+$ lander --version
 # Initialize a new project in a directory called "example".
 # This will create files as in the example above in "example".
 # Customize the files to your liking. :)
-$ python3 lander.py --init example
+$ lander --init example
 # Compile the HTML file with all variables filled in and print out the code that is generated.
-$ python3 lander.py --config config.json --template template.html --verbose
+$ lander --config config.json --template template.html --verbose
 # Compile the HTML file with all variables filled in.
-$ python3 lander.py --config config.json --template template.html
+$ lander --config config.json --template template.html
 ```
 
-If you run any of the last two commands in a command-line window, you will see a little file called `index.html` in a directory called `build`.
+If you run any of the last two commands in a command-line window, you will see a little file called `index.html` in a directory called `site_build`.
 
 ## Changelog :black_nib:
 
 ### Version 1.0.0
 
-- Initial release
-- Fixed CI and other commands
-- Added a class for tools
+- Initial release.
+- Fixed CI and other commands.
+- Added a class for tools.
+- Packaged the tool.
 
 ## Note :scroll:
 
