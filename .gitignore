@@ -1,2 +1,8 @@
-build/*
+build
 .DS_Store
+dist
+lander.egg-info
+bin
+include
+lib
+pyvenv.cfg

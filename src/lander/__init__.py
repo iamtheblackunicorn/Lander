@@ -27,7 +27,7 @@ class Compiler:
         self.template = template_name
         self.pattern = r'\{\{\s(.*)\s\}\}'
         self.verbose = verbose
-        self.build_dir = 'build'
+        self.build_dir = 'site_build'
         self.o_file_name = 'index.html'
     def get_data(self, template):
         """
@@ -191,9 +191,3 @@ def main():
     interpreter.
     """
     CLI().run()
-if __name__ == '__main__':
-    """
-    Only invoked when Lander
-    is called as a stand-alone tool.
-    """
-    main()

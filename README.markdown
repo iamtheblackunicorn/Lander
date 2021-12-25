@@ -12,15 +12,26 @@ A while ago, I wanted to make a custom page-builder and I came up with this. Thi
 
 Lander's project page can be found [here](https://blckunicorn.art/Lander).
 
-## Download :inbox_tray:
-
-Download this tool from [here]().
-
-## Usage :hammer:
+## Installation :pick:
 
 ### Requirements
 
-You need Python 3.x installed. That's it.
+You need the following tools installed and available from the command-line.
+
+- Python 3.x
+- Pip for Python 3.x
+
+### Install it from source
+
+Run this command from a command-line window:
+
+```bash
+$ python3 -m pip install git+https://github.com/iamtheblackunicorn/Lander.git
+```
+
+If the installation was successful, you should be able to run the command `lander --version` from a command-line window.
+
+## Usage :hammer:
 
 ### Set it up
 

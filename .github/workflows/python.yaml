@@ -14,12 +14,14 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: python -m pip install -r requirements.txt
+      - name: Install the package
+        run: python setup.py install
       - name: Run sample project initialization.
-        run: python src/lander.py --init hello
+        run: lander --init hello
       - name: Build example project
-        run: python src/lander.py --config example/config.json --template example/template.html --verbose && ls
+        run: lander --config example/config.json --template example/template.html --verbose && ls
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@4.1.7
         with:
           branch: gh-pages
-          folder: build
+          folder: site_build
